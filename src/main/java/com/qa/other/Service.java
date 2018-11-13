@@ -4,9 +4,14 @@ import java.util.HashMap;
 
 public class Service {
 	
-	private static int accountNumber = 1;
+	private int accountNumber = 1;
 	
 	private HashMap<Integer, Account> personList = new HashMap<Integer, Account>();
+	
+	public HashMap<Integer, Account> getPersonListMap()
+	{
+		return personList;
+	}
 	
 	public void setPerson(String firstName, String lastName)
 	{
@@ -33,5 +38,6 @@ public class Service {
 	{
 		return personList.get(accountNumber);
 	}
+
 
 }
