@@ -14,18 +14,11 @@ public class Feature {
 	
 	public int numberOfUsersWithFirstName(String name) {
 		
-		int count = 0;
-		
-		for(int i=1; i <= personList.size() ; i++)
-		{
-			if(personList.get(i).getFirstName() == name)
-			{
-				count++;
-			}
-		}
-		
-		return count;
-		
+		return
+		(int) personList.entrySet()
+						.stream()
+						.filter( account -> account.getValue().getFirstName() == name)
+						.count();
 	}
 
 }
