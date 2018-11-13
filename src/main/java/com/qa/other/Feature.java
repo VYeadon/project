@@ -17,7 +17,8 @@ public class Feature {
 		return
 		(int) personList.entrySet()
 						.stream()
-						.filter( account -> account.getValue().getFirstName() == name)
+						.filter( account -> 
+									account.getValue().getFirstName().equalsIgnoreCase(name))
 						.count();
 	}
 
