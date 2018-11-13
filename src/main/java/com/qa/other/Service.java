@@ -4,9 +4,14 @@ import java.util.HashMap;
 
 public class Service {
 	
-	private static int accountNumber = 1;
+	private int accountNumber = 1;
 	
 	private HashMap<Integer, Account> personList = new HashMap<Integer, Account>();
+	
+	public HashMap<Integer, Account> getPersonListMap()
+	{
+		return personList;
+	}
 	
 	public void setPerson(String firstName, String lastName)
 	{
@@ -22,6 +27,12 @@ public class Service {
 	
 	public void getPerson(int accountNumber)
 	{
+		if(personList.size()<accountNumber)
+		{
+			System.out.println("no account found with this account number");
+			return;
+		}
+		
 		Account user = personList.get(accountNumber);
 		
 		System.out.println("The users first name is: " + user.getFirstName());
@@ -31,7 +42,14 @@ public class Service {
 	
 	public Account getPersonAccountObject(int accountNumber)
 	{
+		if(personList.size()<accountNumber)
+		{
+			System.out.println("no account found with this account number");
+			return null;
+		}
+		
 		return personList.get(accountNumber);
 	}
+
 
 }
