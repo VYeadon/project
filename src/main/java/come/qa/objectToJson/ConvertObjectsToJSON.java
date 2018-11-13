@@ -15,7 +15,7 @@ public class ConvertObjectsToJSON {
 		String jsonObject = "";
 
 		try {
-			jsonObject = objMapper.writeValueAsString(user);
+			jsonObject = objMapper.writerWithDefaultPrettyPrinter().writeValueAsString(user);
 			System.out.println(jsonObject);
 
 		} catch (JsonProcessingException e) {

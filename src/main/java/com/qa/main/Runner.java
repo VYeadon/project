@@ -18,7 +18,8 @@ public class Runner {
 		
 		ConvertObjectsToJSON JSONConverter = new ConvertObjectsToJSON();
 		
-		JSONConverter.objectToJSONConverter(runnerObj.getPersonAccountMap(1));
+		JSONConverter.objectToJSONConverter(runnerObj.getPersonAccountObject(1));
+		JSONConverter.objectToJSONConverter(runnerObj.getPersonAccountObject(2));
 	}
 
 }

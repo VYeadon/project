@@ -29,7 +29,7 @@ public class Service {
 		System.out.println("The users account number is: " + accountNumber);
 	}
 	
-	public Account getPersonAccountMap(int accountNumber)
+	public Account getPersonAccountObject(int accountNumber)
 	{
 		return personList.get(accountNumber);
 	}
