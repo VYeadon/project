@@ -4,9 +4,9 @@ import java.util.HashMap;
 
 public class Service {
 	
-	private static int accountNumber = 0;
+	private static int accountNumber = 1;
 	
-	HashMap<Integer, Account> personList = new HashMap<Integer, Account>();
+	private HashMap<Integer, Account> personList = new HashMap<Integer, Account>();
 	
 	public void setPerson(String firstName, String lastName)
 	{
@@ -27,6 +27,11 @@ public class Service {
 		System.out.println("The users first name is: " + user.getFirstName());
 		System.out.println("The users last name is: " + user.getLastName());
 		System.out.println("The users account number is: " + accountNumber);
+	}
+	
+	public Account getPersonAccountObject(int accountNumber)
+	{
+		return personList.get(accountNumber);
 	}
 
 }
