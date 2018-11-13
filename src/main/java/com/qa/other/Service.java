@@ -27,6 +27,12 @@ public class Service {
 	
 	public void getPerson(int accountNumber)
 	{
+		if(personList.size()<accountNumber)
+		{
+			System.out.println("no account found with this account number");
+			return;
+		}
+		
 		Account user = personList.get(accountNumber);
 		
 		System.out.println("The users first name is: " + user.getFirstName());
@@ -36,6 +42,12 @@ public class Service {
 	
 	public Account getPersonAccountObject(int accountNumber)
 	{
+		if(personList.size()<accountNumber)
+		{
+			System.out.println("no account found with this account number");
+			return null;
+		}
+		
 		return personList.get(accountNumber);
 	}
 
