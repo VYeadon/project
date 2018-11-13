@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.qa.other.Feature;
 import com.qa.other.Service;
 
 public class NumberOfUsersWithFirstNameTest {
