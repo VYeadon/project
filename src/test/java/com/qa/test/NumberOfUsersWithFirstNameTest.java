@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.qa.other.Feature;
 import com.qa.other.Service;
 
 public class NumberOfUsersWithFirstNameTest {
@@ -15,9 +14,7 @@ public class NumberOfUsersWithFirstNameTest {
 		serviceObj.setPerson("mical", "person");
 		serviceObj.setPerson("mical", "Otherperson");
 		
-		Feature featureObj = new Feature(serviceObj.getPersonListMap());
-		
-		assertEquals(2,featureObj.numberOfUsersWithFirstName("mical"));
+		assertEquals(2,serviceObj.numberOfUsersWithFirstName("mical"));
 	}
 	
 	@Test
@@ -27,10 +24,8 @@ public class NumberOfUsersWithFirstNameTest {
 		serviceObj.setPerson("steve", "Otherperson");
 		serviceObj.setPerson("mical", "steven");
 		serviceObj.setPerson("mical", "benson");
-		
-		Feature featureObj = new Feature(serviceObj.getPersonListMap());
-		
-		assertEquals(3,featureObj.numberOfUsersWithFirstName("mical"));
+				
+		assertEquals(3,serviceObj.numberOfUsersWithFirstName("mical"));
 	}
 	
 	@Test
@@ -39,10 +34,8 @@ public class NumberOfUsersWithFirstNameTest {
 		serviceObj.setPerson("mical", "person");
 		serviceObj.setPerson("mical", "Otherperson");
 		serviceObj.setPerson("benjiman", "steve");
-		
-		Feature featureObj = new Feature(serviceObj.getPersonListMap());
-		
-		assertEquals(0,featureObj.numberOfUsersWithFirstName("steve"));
+				
+		assertEquals(0,serviceObj.numberOfUsersWithFirstName("steve"));
 	}
 	
 	@Test
@@ -50,12 +43,26 @@ public class NumberOfUsersWithFirstNameTest {
 		Service serviceObj = new Service();
 		serviceObj.setPerson("mical", "person");
 		serviceObj.setPerson("ben", "person");
-		
-		Feature featureObj = new Feature(serviceObj.getPersonListMap());
-		
-		assertEquals(0,featureObj.numberOfUsersWithFirstName("person"));
+				
+		assertEquals(0,serviceObj.numberOfUsersWithFirstName("person"));
 	}
-
+	
+	@Test
+	public void test5() {
+		Service serviceObj = new Service();
+		serviceObj.setPerson("mical", "person");
+		serviceObj.setPerson("ben", "person");
+		
+		assertEquals(2,serviceObj.getPersonListMap().size());
+		
+		serviceObj.setPerson("steve", "perfssson");
+		
+		assertEquals(3,serviceObj.getPersonListMap().size());
+		
+		serviceObj.getPersonListMap().remove(1);
+		
+		assertEquals(2,serviceObj.getPersonListMap().size());
+	}
 	
 	
 }
