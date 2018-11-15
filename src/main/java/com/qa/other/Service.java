@@ -42,7 +42,7 @@ public class Service {
 	
 	public Account getPersonAccountObject(int accountNumber)
 	{
-		if(personList.size()<accountNumber)
+		if(!personList.containsKey(accountNumber))
 		{
 			System.out.println("no account found with this account number");
 			return null;
@@ -50,6 +50,15 @@ public class Service {
 		
 		return personList.get(accountNumber);
 	}
-
+	
+	public int numberOfUsersWithFirstName(String name) {
+		
+		return
+		(int) personList.entrySet()
+						.stream()
+						.filter( account -> 
+									account.getValue().getFirstName().equalsIgnoreCase(name))
+						.count();
+	}
 
 }
